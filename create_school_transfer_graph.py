@@ -5,13 +5,12 @@ from neo4j import GraphDatabase
 from getpass import getpass
 from py2neo import Graph
 import re
-display(HTML("<style>.container { width:100% !important; }</style>"))
 
 
 # read files
-transfer_report_20_21 = pd.read_csv(r'C:\Users\rliam\Desktop\UEI\Projects\School Mobility Graph\xfers_campus_2020_21.csv')
-transfer_report_21_22 = pd.read_csv(r'C:\Users\rliam\Desktop\UEI\Projects\School Mobility Graph\xfers_campus_2021_22.csv')
-schools_list = pd.read_csv(r'C:\Users\rliam\Desktop\UEI\Projects\School Mobility Graph\Schools_2021_to_2022.csv')
+transfer_report_20_21 = pd.read_csv('xfers_campus_2020_21.csv')
+transfer_report_21_22 = pd.read_csv('xfers_campus_2021_22.csv')
+schools_list = pd.read_csv('Schools_2021_to_2022.csv')
 
 # remove -999 and '.' from TRANSFERS_IN_OR_OUT columns of both datasets
 cleaned_transfer_report_20_21 = transfer_report_20_21[(transfer_report_20_21['TRANSFERS_IN_OR_OUT'] != '-999') & (transfer_report_20_21['TRANSFERS_IN_OR_OUT'] != '.')]
